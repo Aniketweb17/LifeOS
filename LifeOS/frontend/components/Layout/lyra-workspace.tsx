@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { Sparkles } from "lucide-react";
-import { LyraCommandBar } from "@/components/shell/lyra-command-bar";
-import { EmptyState } from "@/components/ui/empty-state";
+import { LyraCommandBar } from "@/components/Layout/lyra-command-bar";
+import { EmptyState } from "@/components/ui/EmptyText";
 
 type LyraWorkspaceProps = {
   children?: ReactNode;

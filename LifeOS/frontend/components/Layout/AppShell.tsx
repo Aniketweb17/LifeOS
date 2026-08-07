@@ -1,10 +1,10 @@
 "use client";
 
 import { useState, type ReactNode } from "react";
-import { Sidebar } from "@/components/shell/sidebar";
-import { TopNav } from "@/components/shell/top-nav";
-import { LyraWorkspace } from "@/components/shell/lyra-workspace";
-import { DailyHub } from "@/components/shell/daily-hub";
+import { Sidebar } from "@/components/Layout/sidebar";
+import { TopNav } from "@/components/Layout/top-nav";
+import { LyraWorkspace } from "@/components/Layout/lyra-workspace";
+import { DailyHub } from "@/components/Layout/daily-hub";
 
 type AppShellProps = {
   /** Contextual content for the center Lyra Workspace. */

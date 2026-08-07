@@ -1,8 +1,8 @@
 "use client";
 
 import { Bell, ChevronsLeft, Moon, Sun } from "lucide-react";
-import { IconButton } from "@/components/ui/icon-button";
-import { SearchField } from "@/components/ui/search-field";
+import { IconButton } from "@/components/ui/IconButton";
+import { SearchField } from "@/components/ui/SearchField";
 import { useTheme } from "@/components/theme-provider";
 import { cn } from "@/lib/utils";
 

@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import { NAV_ITEMS, SETTINGS_ITEM } from "../../lib/nav-items";
-import { NavLink } from "@/components/ui/nav-link";
+import { NavLink } from "@/components/ui/NavLink";
 import { cn } from "@/lib/utils";
 
 type SidebarProps = {

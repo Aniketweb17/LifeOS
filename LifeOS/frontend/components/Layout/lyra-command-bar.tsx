@@ -1,7 +1,7 @@
 import { Send } from "lucide-react";
-import { Card } from "@/components/ui/card";
-import { LyraAvatar } from "@/components/ui/lyra-avatar";
-import { IconButton } from "@/components/ui/icon-button";
+import { Card } from "@/components/ui/Card";
+import { LyraAvatar } from "@/components/ui/Avatar";
+import { IconButton } from "@/components/ui/IconButton";
 
 const SUGGESTIONS = ["Plan my day", "Summarize this week's notes", "Draft a standup update"];
 

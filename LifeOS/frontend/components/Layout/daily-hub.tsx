@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import { CalendarDays, ListChecks, Flame } from "lucide-react";
-import { Card, CardHeader } from "@/components/ui/card";
+import { Card, CardHeader } from "@/components/ui/Card";
 
 type DailyHubProps = {
   children?: ReactNode;
