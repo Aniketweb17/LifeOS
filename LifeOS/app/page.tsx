@@ -1,4 +1,4 @@
-import { AppShell } from "@/components/shell/app-shell";
+import AppShell from "@/frontend/components/Layout/AppShell";
 
 /**
  * Shell-only entry point. No dashboard content or business logic lives
@@ -6,5 +6,5 @@ import { AppShell } from "@/components/shell/app-shell";
  * real Dashboard is implemented.
  */
 export default function Home() {
-  return <AppShell />;
+  return null;
 }
