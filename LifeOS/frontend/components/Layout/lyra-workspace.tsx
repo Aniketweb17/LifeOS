@@ -1,4 +1,5 @@
-import { ArrowUp, Sparkles } from "lucide-react";
+import { Sparkles } from "lucide-react";
+import { LyraCommandBar } from "./lyra-command-bar";
 
 export default function LyraWorkspace() {
   return (
@@ -27,20 +28,8 @@ export default function LyraWorkspace() {
       </div>
 
       <div className="shrink-0 px-6 pb-8 pt-4">
-        <div className="mx-auto flex w-full max-w-2xl items-center gap-3 rounded-full border border-border bg-surface px-5 py-3.5">
-          <span className="flex-1 text-sm text-faint">
-            Ask LYRA anything...
-          </span>
-
-          <button
-            type="button"
-            aria-label="Send"
-            className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary text-white"
-          >
-            <ArrowUp size={15} />
-          </button>
-        </div>
-      </div>
+  <LyraCommandBar />
+</div>
     </div>
   );
 }

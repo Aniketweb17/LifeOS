@@ -1,43 +1,62 @@
-import { Send } from "lucide-react";
-import { Card } from "@/components/ui/Card";
-import { LyraAvatar } from "@/components/ui/Avatar";
-import { IconButton } from "@/components/ui/IconButton";
+// frontend/components/Layout/lyra-command-bar.tsx
+"use client";
 
-const SUGGESTIONS = ["Plan my day", "Summarize this week's notes", "Draft a standup update"];
+import { useState, type FormEvent, type KeyboardEvent } from "react";
+import { ArrowUp } from "lucide-react";
 
-/**
- * The omnipresent entry point into Lyra, pinned to the top of the workspace
- * on every page. Presentational only — wiring it up to a real assistant is
- * left to the feature layer.
- */
-export function LyraCommandBar() {
+type LyraCommandBarProps = {
+  onSubmit?: (message: string) => void;
+};
+
+export function LyraCommandBar({ onSubmit }: LyraCommandBarProps) {
+  const [value, setValue] = useState("");
+  const canSend = value.trim().length > 0;
+
+  const handleSubmit = (event: FormEvent) => {
+    event.preventDefault();
+    const message = value.trim();
+    if (!message) return;
+
+    if (onSubmit) {
+      onSubmit(message);
+    } else {
+      console.log("LYRA command:", message);
+    }
+    setValue("");
+  };
+
+  const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      handleSubmit(event);
+    }
+  };
+
   return (
-    <Card className="p-4">
-      <div className="flex items-center gap-3">
-        <LyraAvatar />
+    <form onSubmit={handleSubmit} className="mx-auto w-full max-w-2xl">
+      <div className="flex items-center gap-3 rounded-full border border-border bg-surface px-5 py-3.5 transition-colors focus-within:border-primary">
+        <label htmlFor="lyra-command-input" className="sr-only">
+          Ask LYRA anything
+        </label>
         <input
+          id="lyra-command-input"
           type="text"
-          placeholder="Ask Lyra anything — plan your day, draft a note, find a file..."
-          className="w-full flex-1 bg-transparent text-[14.5px] text-text outline-none placeholder:text-faint"
+          value={value}
+          onChange={(event) => setValue(event.target.value)}
+          onKeyDown={handleKeyDown}
+          placeholder="Ask LYRA anything..."
+          autoComplete="off"
+          className="flex-1 bg-transparent text-sm text-text outline-none placeholder:text-faint"
         />
-        <IconButton
-          label="Send to Lyra"
-          className="h-[34px] w-[34px] shrink-0 rounded-control bg-primary text-white hover:bg-primary-hover hover:text-white"
+        <button
+          type="submit"
+          disabled={!canSend}
+          aria-label="Send"
+          className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-black text-white transition-colors hover:bg-gray-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black disabled:cursor-not-allowed disabled:bg-gray-200 disabled:text-gray-400"
         >
-          <Send size={14} />
-        </IconButton>
+          <ArrowUp size={15} />
+        </button>
       </div>
-
-      <div className="mt-3 flex flex-wrap gap-2">
-        {SUGGESTIONS.map((suggestion) => (
-          <button
-            key={suggestion}
-            className="rounded-full border border-border bg-surface-alt px-3 py-1.5 text-[12.5px] text-muted transition-colors hover:text-text"
-          >
-            {suggestion}
-          </button>
-        ))}
-      </div>
-    </Card>
+    </form>
   );
 }
