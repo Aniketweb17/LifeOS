@@ -2,6 +2,7 @@
 
 import { useEffect, useState, type ReactNode } from "react";
 import LyraWorkspace from "./lyra-workspace";
+import LeftSidebar from "./LeftSidebar";
 
 export type AppShellProps = {
   children?: ReactNode;
@@ -36,14 +37,9 @@ export default function AppShell({ children }: AppShellProps) {
 
   return (
     <div className="flex h-screen w-full overflow-hidden bg-bg text-text">
-      <aside className="flex w-1/4 shrink-0 flex-col overflow-y-auto border-r border-border bg-sidebar lg:flex">
-        {LEFT_SECTIONS.map((title) => (
-          <section key={title} className="flex flex-1 flex-col border-b border-border px-6 py-6 last:border-b-0">
-            <h2 className="font-display text-sm font-semibold tracking-tight text-text">{title}</h2>
-            <p className="mt-2 text-xs text-faint">No data yet.</p>
-          </section>
-        ))}
-      </aside>
+      <aside className="hidden w-1/4 shrink-0 flex-col overflow-y-auto border-r border-border bg-sidebar lg:flex">
+  <LeftSidebar />
+</aside>
 
       <div className="flex h-full w-full flex-1 flex-col lg:w-1/2">
         <header className="flex h-1/5 shrink-0 flex-col items-center justify-center gap-1.5 border-b border-border">
