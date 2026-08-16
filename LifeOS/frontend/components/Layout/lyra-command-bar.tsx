@@ -34,7 +34,7 @@ export function LyraCommandBar({ onSubmit }: LyraCommandBarProps) {
 
   return (
     <form onSubmit={handleSubmit} className="mx-auto w-full max-w-2xl">
-      <div className="flex items-center gap-3 rounded-full border border-border bg-surface px-5 py-3.5 transition-colors focus-within:border-primary">
+      <div className="flex items-center gap-3 rounded-2xl border border-border bg-surface px-5 py-4 shadow-sm transition-colors duration-200 focus-within:border-primary focus-within:ring-1 focus-within:ring-primary/15">
         <label htmlFor="lyra-command-input" className="sr-only">
           Ask LYRA anything
         </label>
@@ -46,15 +46,15 @@ export function LyraCommandBar({ onSubmit }: LyraCommandBarProps) {
           onKeyDown={handleKeyDown}
           placeholder="Ask LYRA anything..."
           autoComplete="off"
-          className="flex-1 bg-transparent text-sm text-text outline-none placeholder:text-faint"
+          className="flex-1 bg-transparent text-sm leading-6 text-text outline-none placeholder:text-faint"
         />
         <button
           type="submit"
           disabled={!canSend}
           aria-label="Send"
-          className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-black text-white transition-colors hover:bg-gray-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black disabled:cursor-not-allowed disabled:bg-gray-200 disabled:text-gray-400"
+          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-black text-white transition-colors duration-150 hover:bg-grey-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:cursor-not-allowed disabled:bg-surface-alt disabled:text-faint disabled:opacity-60"
         >
-          <ArrowUp size={15} />
+          <ArrowUp size={16} />
         </button>
       </div>
     </form>

@@ -50,14 +50,14 @@ export default function LyraWorkspace() {
 
       <div className="flex min-h-0 flex-1 flex-col overflow-y-auto px-6">
         {hasMessages ? (
-          <div className="flex flex-1 flex-col justify-end gap-4 py-4">
+          <div className="flex flex-1 flex-col justify-end gap-5 py-4">
             {messages.map((message) => (
               <div
                 key={message.id}
                 className={`flex ${message.role === "user" ? "justify-end" : "justify-start"}`}
               >
                 <p
-                  className={`max-w-[75%] rounded-2xl px-4 py-2.5 text-sm leading-relaxed ${
+                  className={`max-w-[75%] rounded-xl px-4 py-3 text-sm leading-6 ${
                     message.role === "user"
                       ? "bg-black text-white"
                       : "border border-border bg-surface text-text"
