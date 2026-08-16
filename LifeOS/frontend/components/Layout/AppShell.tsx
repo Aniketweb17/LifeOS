@@ -55,7 +55,7 @@ export default function AppShell({ children }: AppShellProps) {
           </span>
         </header>
 
-        <main className="flex min-h-0 flex-1 flex-col overflow-y-auto p-8">
+        <main className="flex min-h-0 flex-1 flex-col overflow-hidden p-8">
   <LyraWorkspace />
 </main>
       </div>
