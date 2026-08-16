@@ -1,4 +1,3 @@
-// frontend/components/Layout/RightSidebar.tsx
 import { CalendarDays, ListTodo, CalendarClock, Bell, type LucideIcon } from "lucide-react";
 
 type SidebarSection = {
@@ -19,27 +18,29 @@ export default function RightSidebar() {
   return (
     <nav
       aria-label="LYRA daily hub"
-      className="flex h-full min-w-0 flex-col overflow-y-auto overflow-x-hidden"
+      className="flex h-full min-w-0 flex-col overflow-y-auto overflow-x-hidden px-6 pt-6"
     >
-      {SECTIONS.map((section) => (
-        <section
-          key={section.id}
-          aria-label={section.title}
-          className="border-b border-border px-6 py-6 last:border-b-0"
-        >
-          <button
-            type="button"
-            className="flex w-full items-center gap-2.5 rounded-control text-left transition-colors hover:text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
-          >
-            <section.icon size={15} className="shrink-0 text-muted" />
-            <span className="font-display text-sm font-semibold tracking-tight text-text">
-              {section.title}
-            </span>
-          </button>
+      <div className="flex flex-col gap-6">
+        {SECTIONS.map((section) => (
+          <div
+  key={section.id}
+  aria-label={section.title}
+  className="flex flex-col gap-1 border-b border-border pb-4 last:border-b-0 last:pb-0"
+>
+            <button
+              type="button"
+              className="-ml-1 inline-flex w-fit items-center gap-2 rounded-control px-1 py-0.5 text-left transition-colors hover:bg-surface-alt focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+            >
+              <section.icon size={14} className="shrink-0 text-muted" />
+              <span className="font-display text-sm font-semibold tracking-tight text-text">
+                {section.title}
+              </span>
+            </button>
 
-          <p className="mt-2.5 text-xs text-faint">{section.emptyLabel}</p>
-        </section>
-      ))}
+            <p className="pl-1 text-[11px] text-faint">{section.emptyLabel}</p>
+          </div>
+        ))}
+      </div>
     </nav>
   );
 }
