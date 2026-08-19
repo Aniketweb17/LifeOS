@@ -1,4 +1,13 @@
-import { CalendarDays, ListTodo, CalendarClock, Bell, type LucideIcon } from "lucide-react";
+"use client";
+
+import {
+  CalendarDays,
+  ListTodo,
+  CalendarClock,
+  Bell,
+  type LucideIcon,
+} from "lucide-react";
+import Tasks from "../Widgets/Tasks";
 
 type SidebarSection = {
   id: string;
@@ -8,10 +17,30 @@ type SidebarSection = {
 };
 
 const SECTIONS: SidebarSection[] = [
-  { id: "calendar", title: "Calendar", icon: CalendarDays, emptyLabel: "No events today" },
-  { id: "todays-tasks", title: "Today's Tasks", icon: ListTodo, emptyLabel: "No tasks for today" },
-  { id: "upcoming-events", title: "Upcoming Events", icon: CalendarClock, emptyLabel: "No upcoming events" },
-  { id: "reminders", title: "Reminders", icon: Bell, emptyLabel: "No reminders" },
+  {
+    id: "calendar",
+    title: "Calendar",
+    icon: CalendarDays,
+    emptyLabel: "No events today",
+  },
+  {
+    id: "todays-tasks",
+    title: "Today's Tasks",
+    icon: ListTodo,
+    emptyLabel: "No tasks for today",
+  },
+  {
+    id: "upcoming-events",
+    title: "Upcoming Events",
+    icon: CalendarClock,
+    emptyLabel: "No upcoming events",
+  },
+  {
+    id: "reminders",
+    title: "Reminders",
+    icon: Bell,
+    emptyLabel: "No reminders",
+  },
 ];
 
 export default function RightSidebar() {
@@ -23,21 +52,31 @@ export default function RightSidebar() {
       <div className="flex flex-col gap-6">
         {SECTIONS.map((section) => (
           <div
-  key={section.id}
-  aria-label={section.title}
-  className="flex flex-col gap-1 border-b border-border pb-4 last:border-b-0 last:pb-0"
->
+            key={section.id}
+            aria-label={section.title}
+            className="flex flex-col gap-1 border-b border-border pb-4 last:border-b-0 last:pb-0"
+          >
             <button
               type="button"
               className="-ml-1 inline-flex w-fit items-center gap-2 rounded-control px-1 py-0.5 text-left transition-colors hover:bg-surface-alt focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
             >
-              <section.icon size={14} className="shrink-0 text-muted" />
+              <section.icon
+                size={14}
+                className="shrink-0 text-muted"
+              />
+
               <span className="font-display text-sm font-semibold tracking-tight text-text">
                 {section.title}
               </span>
             </button>
 
-            <p className="pl-1 text-[11px] text-faint">{section.emptyLabel}</p>
+            {section.id === "todays-tasks" ? (
+              <Tasks />
+            ) : (
+              <p className="pl-1 text-[11px] text-faint">
+                {section.emptyLabel}
+              </p>
+            )}
           </div>
         ))}
       </div>
