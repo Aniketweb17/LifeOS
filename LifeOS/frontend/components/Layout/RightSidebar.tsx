@@ -8,6 +8,8 @@ import {
 } from "lucide-react";
 import Tasks from "../Widgets/Tasks";
 import Events from "../Widgets/Events";
+import Reminders from "../Widgets/Reminders";
+import Calender from "../Widgets/Calender";
 
 type SidebarSection = {
   id: string;
@@ -65,7 +67,21 @@ export default function RightSidebar() {
     >
       <Events />
     </div>
-  ) :  (
+  ) : section.id === "reminders" ? (
+    <div
+      key={section.id}
+      className="border-b border-border pb-4"
+    >
+      <Reminders />
+    </div>
+    ) :  section.id === "calendar" ? (
+    <div
+      key={section.id}
+      className="border-b border-border pb-4"
+    >
+      <Calender events={[]} reminders={[]} />
+    </div>
+    ) : (
             <div
               key={section.id}
               aria-label={section.title}

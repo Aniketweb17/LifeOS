@@ -8,7 +8,13 @@ import {
   useEffect,
   useRef,
 } from "react";
-import { Plus, MapPin, Clock, MoreVertical } from "lucide-react";
+import {
+  Plus,
+  MapPin,
+  Clock,
+  CalendarDays,
+  MoreVertical,
+} from "lucide-react";
 
 interface Event {
   id: string;
@@ -277,7 +283,8 @@ export default function EventsWidget() {
   return (
     <div className="flex w-full flex-col gap-3">
       <div className="flex items-center justify-between">
-        <h3 className="text-sm font-medium text-text">
+        <h3 className="flex items-center gap-1.5 text-sm font-semibold text-text">
+          <CalendarDays size={14} className="text-muted" />
           Upcoming Events
         </h3>
 
