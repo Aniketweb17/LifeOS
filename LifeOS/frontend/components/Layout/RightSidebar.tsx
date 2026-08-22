@@ -7,6 +7,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import Tasks from "../Widgets/Tasks";
+import Events from "../Widgets/Events";
 
 type SidebarSection = {
   id: string;
@@ -50,14 +51,21 @@ export default function RightSidebar() {
     >
       <div className="flex flex-col gap-6">
         {SECTIONS.map((section) =>
-          section.id === "todays-tasks" ? (
-            <div
-  key={section.id}
-  className="border-b border-border pb-4"
->
-  <Tasks />
-</div>
-          ) : (
+  section.id === "todays-tasks" ? (
+    <div
+      key={section.id}
+      className="border-b border-border pb-4"
+    >
+      <Tasks />
+    </div>
+  ) : section.id === "upcoming-events" ? (
+    <div
+      key={section.id}
+      className="border-b border-border pb-4"
+    >
+      <Events />
+    </div>
+  ) :  (
             <div
               key={section.id}
               aria-label={section.title}
